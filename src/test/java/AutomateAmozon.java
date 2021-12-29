@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utilities.WebDriverFactory;
 
@@ -21,6 +22,11 @@ public class AutomateAmozon {
         WebElement signInButton = driver.findElement(By.xpath("//*[@*='login']"));
         signInButton.click();
 
+
+        //Validation
+        String expectedUrl = driver.getCurrentUrl();
+        System.out.println("expectedUrl = " + expectedUrl);
+        Assert.assertTrue(expectedUrl.equals(driver.getCurrentUrl()),"verify that user is created");
 
     }
 }
